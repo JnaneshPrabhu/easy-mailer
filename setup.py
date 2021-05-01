@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'easy_mailer',         # How you named your package folder (MyLib)
   packages = ['easy_mailer'],   # Chose the same as "name"
-  version = '0.1',      # Start with a small number and increase it with every change you make
+  version = '0.3',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Easy Mailer lets one use popular mailing services like outlook, gmail to send\
   items or mail via python code.',   # Give a short description about your library
