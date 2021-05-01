@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[17]:
-
 
 import smtplib
 from email.mime.multipart import MIMEMultipart 
@@ -20,10 +18,10 @@ logger = logging.getLogger()
 
 
 
-def appendAttachments(file,msg):
+def appendAttachments(file,msg,filename):
     # open the file to be sent  
     
-    attachment = open(filename, "rb") 
+    attachment = open(file, "rb") 
       
     # instance of MIMEBase and named as p 
     p = MIMEBase('application', 'octet-stream') 
@@ -88,8 +86,8 @@ def send_mail(username, password, recipient_list, subject, message = '', files =
     if message != '':
         msg.attach(MIMEText(message))
     if len(files) > 0:
-        for i in files:
-            msg = appendAttachments(i,msg)
+        for i in range(0,len(files)):
+            msg = appendAttachments(files[i],msg,filenames[i])
     
     
     
@@ -111,7 +109,7 @@ def send_mail(username, password, recipient_list, subject, message = '', files =
         
 
 
-# In[ ]:
+
 
 
 
