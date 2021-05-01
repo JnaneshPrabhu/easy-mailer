@@ -1,1 +1,1 @@
-from send_outlook_mail import send_mail
+from easy_mailer import send_mail
