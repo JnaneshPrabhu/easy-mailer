@@ -57,7 +57,7 @@ This takes into input parameters as shown below
         files: optional
             type: Any
             Attachments to be uploaded in the mailer. Note mail restrictions of memory still applies.
-        filenames: optional
+        filenames: optional, required in case files are provided.
             type: List of str
             Applicable only when files is not empty.
             Pass on the list containing names of files one wants to display in the mail body. By default will show processed absolute path names.
@@ -79,6 +79,14 @@ from easy_mailer import send_mail
 ```sh
 send_mail(username = 'abc@email.com', password = 'pass', subject = 'Sample Subject')
 ```
+
+If one wants to have attachments use following:
+```sh
+send_mail(username = 'abc@email.com', password = 'pass', subject = 'Sample Subject', files = ['<abs_path_of_file1>','<abs_path_of_file2>'],filenames = ['display_name_1','display_name_2'])
+```
+Its important to note here that files will contain **absolute path names** whereas filenames will contain **name of the file to be displayed in mailer**.
+By default the absolute path will be considered. 
+
 ## License
 
 MIT
