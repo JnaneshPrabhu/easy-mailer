@@ -12,13 +12,12 @@ from email import encoders
 import logging
 
 
-# In[18]:
+
 
 
 logger = logging.getLogger()
 
 
-# In[2]:
 
 
 def appendAttachments(file,msg):
@@ -44,10 +43,10 @@ def appendAttachments(file,msg):
     return msg
 
 
-# In[19]:
 
 
-def send_mail(username, password, recipient_list, subject, *args):
+
+def send_mail(username, password, recipient_list, subject, message = '', files = [], filenames = []):
     """
     This takes into input parameters as shown below
 
@@ -70,7 +69,10 @@ def send_mail(username, password, recipient_list, subject, *args):
         files: optional
             type: Any
             Attachments to be uploaded in the mailer. Note mail restrictions of memory still applies.
-            In case of no attachment
+        filenames: optional
+            type: List of str
+            Applicable only when files is not empty.
+            Pass on the list containing names of files one wants to display in the mail body. By default will show processed absolute path names.
             
 
     Returns:
@@ -83,17 +85,13 @@ def send_mail(username, password, recipient_list, subject, *args):
     msg['From'] = username
     msg['To'] = ', '.join(recipient_list)
     msg['Subject'] = subject
-    if len(args) > 0:
-        message, files = args
+    if message != '':
         msg.attach(MIMEText(message))
-        if len(files) > 0:
-            for i in files:
-                msg = appendAttachments(i,msg)
-
+    if len(files) > 0:
+        for i in files:
+            msg = appendAttachments(i,msg)
     
-    #print('sending mail to ' + recipient + ' on ' + subject)
     
-    #print('Sending mail')
     
     #Setting the threshold of logger to DEBUG
     logger.setLevel(logging.DEBUG)
