@@ -89,8 +89,10 @@ def send_mail(username, password, recipient_list, subject, message = '', files =
     if len(files) > 0:
         if len(filenames) != len(files):
             logger.error('The filenames and files list donot match in length. Please check your input parameters and try again')
-        for i in range(0,len(files)):
-            msg = appendAttachments(files[i],msg,filenames[i])
+            print('The filenames and files list donot match in length. Please check your input parameters and try again')
+        else:
+            for i in range(0,len(files)):
+                msg = appendAttachments(files[i],msg,filenames[i])
     
     
     
