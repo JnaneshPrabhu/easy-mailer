@@ -57,7 +57,10 @@ This takes into input parameters as shown below
         files: optional
             type: Any
             Attachments to be uploaded in the mailer. Note mail restrictions of memory still applies.
-            In case of no attachment
+        filenames: optional
+            type: List of str
+            Applicable only when files is not empty.
+            Pass on the list containing names of files one wants to display in the mail body. By default will show processed absolute path names.
             
 
     Returns:
