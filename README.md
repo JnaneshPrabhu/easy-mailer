@@ -22,7 +22,7 @@ Easy Mailer is an easy to use one line method to send mails using authentication
 
 ## Installation
 
-Dillinger requires python3 and above to run. Python 2 compatible but not tested.
+Easy mailer requires python3 and above to run. Python 2 compatible but not tested.
 
 Install the package via pip.
 
